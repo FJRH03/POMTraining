@@ -59,6 +59,17 @@ public class CommonMethods {
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		return element;
 	}
+	
+	public void scrollToElement(By locator)
+	{
+		WebElement element = waitForElementToBePresent(locator);
+		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+	
+	public void scrollToElement(WebElement element)
+	{
+		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	}
 
 	/***
 	 * Returns a list of the text from a list of elements
